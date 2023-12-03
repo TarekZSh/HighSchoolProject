@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ExistTrip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExistTripResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExistTripResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTripDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="tns:Trip" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Trip">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TripID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripPlace" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TripDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateTripDetailsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteTripDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTripDetailsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddNewTrip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Place" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewTripResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllTrips">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllTripsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllTripsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTripById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTripByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTripByIdResult" type="tns:Trip" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExistTripSoapIn">
+    <wsdl:part name="parameters" element="tns:ExistTrip" />
+  </wsdl:message>
+  <wsdl:message name="ExistTripSoapOut">
+    <wsdl:part name="parameters" element="tns:ExistTripResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTripDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTripDetails" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTripDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTripDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTripDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTripDetails" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTripDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTripDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewTripSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewTrip" />
+  </wsdl:message>
+  <wsdl:message name="AddNewTripSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewTripResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTripsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllTrips" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTripsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllTripsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTripByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTripById" />
+  </wsdl:message>
+  <wsdl:message name="GetTripByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTripByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TripServiceSoap">
+    <wsdl:operation name="ExistTrip">
+      <wsdl:input message="tns:ExistTripSoapIn" />
+      <wsdl:output message="tns:ExistTripSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripDetails">
+      <wsdl:input message="tns:UpdateTripDetailsSoapIn" />
+      <wsdl:output message="tns:UpdateTripDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTripDetails">
+      <wsdl:input message="tns:DeleteTripDetailsSoapIn" />
+      <wsdl:output message="tns:DeleteTripDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewTrip">
+      <wsdl:input message="tns:AddNewTripSoapIn" />
+      <wsdl:output message="tns:AddNewTripSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrips">
+      <wsdl:input message="tns:GetAllTripsSoapIn" />
+      <wsdl:output message="tns:GetAllTripsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTripById">
+      <wsdl:input message="tns:GetTripByIdSoapIn" />
+      <wsdl:output message="tns:GetTripByIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TripServiceSoap" type="tns:TripServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExistTrip">
+      <soap:operation soapAction="http://tempuri.org/ExistTrip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripDetails">
+      <soap:operation soapAction="http://tempuri.org/UpdateTripDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTripDetails">
+      <soap:operation soapAction="http://tempuri.org/DeleteTripDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewTrip">
+      <soap:operation soapAction="http://tempuri.org/AddNewTrip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrips">
+      <soap:operation soapAction="http://tempuri.org/GetAllTrips" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripById">
+      <soap:operation soapAction="http://tempuri.org/GetTripById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TripServiceSoap12" type="tns:TripServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExistTrip">
+      <soap12:operation soapAction="http://tempuri.org/ExistTrip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTripDetails">
+      <soap12:operation soapAction="http://tempuri.org/UpdateTripDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTripDetails">
+      <soap12:operation soapAction="http://tempuri.org/DeleteTripDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewTrip">
+      <soap12:operation soapAction="http://tempuri.org/AddNewTrip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrips">
+      <soap12:operation soapAction="http://tempuri.org/GetAllTrips" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTripById">
+      <soap12:operation soapAction="http://tempuri.org/GetTripById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TripService">
+    <wsdl:port name="TripServiceSoap" binding="tns:TripServiceSoap">
+      <soap:address location="http://localhost:59478/TripService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TripServiceSoap12" binding="tns:TripServiceSoap12">
+      <soap12:address location="http://localhost:59478/TripService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
